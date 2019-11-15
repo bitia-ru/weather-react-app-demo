@@ -1,0 +1,37 @@
+env:
+  browser: true
+  node: true
+  es6: true
+  commonjs: true
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+settings:
+  react:
+    version: detect
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parserOptions:
+  ecmaFeatures:
+    jsx: true
+  ecmaVersion: 2018
+  sourceType: module
+parser: babel-eslint
+plugins:
+  - react
+rules:
+  max-len: [error, { code: 100 }]
+  quotes: [error, single]
+  function-paren-newline: [error, multiline]
+  "react/jsx-child-element-spacing": [1]
+  "react/jsx-closing-bracket-location": [1]
+  "react/jsx-closing-tag-location": [1]
+  "react/jsx-curly-newline": [1]
+  "react/jsx-indent": [1, 2]
+  "react/jsx-indent-props": [1, 2]
+  "react/jsx-pascal-case": [1]
+  "react/jsx-props-no-multi-spaces": [1]
+  "react/jsx-sort-default-props": [1]
+  "react/jsx-tag-spacing": [1]
+  "react/jsx-wrap-multilines": [1]
