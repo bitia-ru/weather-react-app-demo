@@ -2,24 +2,30 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import MainLayout from '../../layouts/MainLayout/MainLayout';
 import { setLogoutRequested as performLogout } from '../../actions/login';
 import { performLogin } from '../../storage/login';
 
+import './index.css';
+
 
 const Index = ({ loginData, performLogin, performLogout }) => (
-  loginData.login ?
-    <> Hello, {loginData.login}!
-      {' '}
-      <a onClick={() => performLogout()}>[Logout]</a>
-    </>
-    :
-    <>
-      Hello, world!
-      {' '}
-      <a onClick={() => performLogin('pupkine', '123456')}>
-        [Login as pupkine]
-      </a>
-    </>
+  <MainLayout>
+    {
+      loginData.login ?
+        <>
+          Hello, {loginData.login}!
+          {' '}
+          <a onClick={() => performLogout()}>[Logout]</a>
+        </>
+        :
+        <>
+          Hello, world!
+          {' '}
+          <a onClick={() => performLogin('pupkine', '123456')}>[Login as pupkine]</a>
+        </>
+    }
+  </MainLayout>
 );
 
 Index.propTypes = {
@@ -33,7 +39,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  performLogin: (l, p) => dispatch(performLogin(l, p)),
+  performLogin: (login, password) => dispatch(performLogin(login, password)),
   performLogout: () => dispatch(performLogout()),
 });
 

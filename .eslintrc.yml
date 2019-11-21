@@ -19,8 +19,26 @@ parserOptions:
   sourceType: module
 parser: babel-eslint
 plugins:
+  - import
   - react
 rules:
+  indent:
+    - error
+    - 2
+    - ignoredNodes: #< "indent" and "react/jsx-indent" are conflicting rules, this is the workaround
+      - JSXElement
+      - 'JSXElement > *'
+      - JSXAttribute
+      - JSXIdentifier
+      - JSXNamespacedName
+      - JSXMemberExpression
+      - JSXSpreadAttribute
+      - JSXExpressionContainer
+      - JSXOpeningElement
+      - JSXClosingElement
+      - JSXText
+      - JSXEmptyExpression
+      - JSXSpreadChild
   max-len: [error, { code: 100 }]
   quotes: [error, single]
   function-paren-newline: [error, multiline]
@@ -28,7 +46,7 @@ rules:
   "react/jsx-closing-bracket-location": [1]
   "react/jsx-closing-tag-location": [1]
   "react/jsx-curly-newline": [1]
-  "react/jsx-indent": [1, 2]
+  "react/jsx-indent": [error, 2, { indentLogicalExpressions: true }]
   "react/jsx-indent-props": [1, 2]
   "react/jsx-pascal-case": [1]
   "react/jsx-props-no-multi-spaces": [1]
