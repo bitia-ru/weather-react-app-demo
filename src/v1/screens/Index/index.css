@@ -1,4 +1,5 @@
 @import '../../assets/fonts/gilroy.css';
+@import '../../modules/clickable/clickable.css';
 
 html, body, #app {
   width: 100%;

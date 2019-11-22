@@ -8,7 +8,7 @@ import {
 import { SpecificChildrenType } from '../../../Utils';
 
 
-const Row = ({children, style}) => (
+const Col = ({children, style}) => (
   <div style={{...defaultStyle, ...style}}>
     {children}
   </div>
@@ -16,10 +16,11 @@ const Row = ({children, style}) => (
 
 const defaultStyle = {
   display: 'flex',
-  width: '100%',
+  flexFlow: 'column',
+  height: '100%',
 };
 
-Row.propTypes = {
+Col.propTypes = {
   children: SpecificChildrenType([
     fcPropType(Item),
     fcPropType(ItemWrapper),
@@ -27,4 +28,4 @@ Row.propTypes = {
   style: PropTypes.object,
 };
 
-export default Row;
+export default Col;

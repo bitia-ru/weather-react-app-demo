@@ -5,7 +5,7 @@ import Index from './v1/screens/Index/Index.jsx';
 
 const AppRouter = () => (
   <Switch>
-    <Route exact path="/" component={Index} />
+    <Route exact path={['/', '/cities']} component={Index} />
   </Switch>
 );
 

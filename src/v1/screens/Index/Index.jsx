@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import * as R from 'ramda';
 import MainLayout from '../../layouts/MainLayout/MainLayout';
 import { setLogoutRequested as performLogout } from '../../actions/login';
 import { performLogin } from '../../storage/login';
+import withClickableEffect from '../../modules/clickable/clickable';
 
 import './index.css';
 
@@ -43,4 +45,10 @@ const mapDispatchToProps = dispatch => ({
   performLogout: () => dispatch(performLogout()),
 });
 
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Index));
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(
+    R.pipe(
+      withClickableEffect
+    )(Index)
+  )
+);
