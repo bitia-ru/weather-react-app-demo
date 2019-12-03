@@ -2,7 +2,7 @@ import React from 'react';
 import Radium from 'radium';
 
 
-const Avatar = () => (
+const Avatar = ({onClick}) => (
   <div
     className={'clickable'}
     style={{
@@ -18,6 +18,7 @@ const Avatar = () => (
       },
     }}
     tabIndex={0}
+    onClick={onClick}
   >
     <img width={50} height={50} src={require('./avatar.png')} />
   </div>

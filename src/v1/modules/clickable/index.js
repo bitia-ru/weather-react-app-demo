@@ -1,6 +1,8 @@
 import React from 'react';
 
 
+const isReactClassComponent = c => typeof c === 'function' && !!c.prototype.isReactComponent;
+
 const withClickableEffect = BaseComponent => {
   const installEffect = () => {
     document.body.onclick = e => {
@@ -12,7 +14,7 @@ const withClickableEffect = BaseComponent => {
     }
   };
 
-  if (typeof BaseComponent === 'function') {
+  if (!isReactClassComponent(BaseComponent)) {
     return class ClickableEffectWrapper extends React.PureComponent {
       componentDidMount() {
         installEffect();
@@ -26,7 +28,7 @@ const withClickableEffect = BaseComponent => {
 
   return class ClickableEffectWrapper extends BaseComponent {
     componentDidMount(...args) {
-      super.componentDidMount.apply(this, args);
+      super.componentDidMount?.apply(this, args);
 
       installEffect();
     }

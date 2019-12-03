@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import ItemWrapper from '../../layouts/Base/ItemWrapper';
 import Item from '../../layouts/Base/Item';
 import Col from '../../layouts/Base/Col';
@@ -8,7 +9,7 @@ import Avatar from '../../components/Avatar';
 import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 
-const AppMenu = () => (
+const AppMenu = ({history}) => (
   <div style={style}>
     <Col style={{alignItems: 'center'}}>
       <ItemWrapper fixedSize>
@@ -22,7 +23,7 @@ const AppMenu = () => (
         <LanguageSwitcher />
       </ItemWrapper>
       <ItemWrapper fixedSize>
-        <Avatar onClick={() => go('#profile')} />
+        <Avatar onClick={() => history.push('#profile')} />
       </ItemWrapper>
     </Col>
   </div>
@@ -36,4 +37,4 @@ const style = {
   boxSizing: 'border-box',
 };
 
-export default AppMenu;
+export default withRouter(AppMenu);
