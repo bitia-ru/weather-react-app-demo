@@ -101,6 +101,9 @@ const withModals = BaseComponent => {
         return;
 
       for (const name in modalDescriptions) {
+        if (!Object.prototype.hasOwnProperty.call(modalDescriptions, name))
+          continue;
+
         if (modalStates[name]?.isShown)
           return this.modalWrapper(name, modalDescriptions[name].body, modalStates[name]?.args);
       }

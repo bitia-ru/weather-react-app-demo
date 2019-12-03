@@ -1,9 +1,11 @@
 import React from 'react';
 import Modal from '../Modal';
+import Button from '../../components/Button';
+
 
 const ProfileModal = () => (
   <Modal>
-    FOoo
+    <Button onClick={() => alert('asdf')}>Save</Button>
   </Modal>
 );
 
