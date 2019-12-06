@@ -42,7 +42,7 @@ class CheckBox extends React.PureComponent {
             disabled,
           })
         }
-        onClick={disabled && this.onClick}
+        onClick={!disabled && this.onClick}
         tabIndex={0}
       >
         <div
@@ -99,16 +99,14 @@ const style = {
       height: '12px',
       margin: '5px',
       background: 'white',
-      border: '1px solid',
-      borderColor: '#8e989f',
+      border: '1px solid #8e989f',
       transition: 'all .3s',
     },
     on: {
-      border: '1px solid',
-      borderColor: '#d3e8ff',
+      border: '1px solid #d3e8ff',
     },
     disabled: {
-      borderColor: 'rgba(184,193,204,0.15)',
+      border: 'solid 1px rgba(184,193,204,0.15)',
     },
   },
   pin: {

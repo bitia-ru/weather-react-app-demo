@@ -66,15 +66,14 @@ const style = {
       display: 'inline-block',
       width: '44px',
       height: '22px',
-      border: '1px solid',
-      borderColor: '#dae5f2',
+      border: '1px solid #dae5f2',
       borderRadius: '2px',
       margin: '10px',
       lineHeight: 'normal',
       verticalAlign: 'sub',
     },
     on: {
-      borderColor: '#d3e8ff',
+      border: '1px solid #d3e8ff',
     },
   },
   pin: {

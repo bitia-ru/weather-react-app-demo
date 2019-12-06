@@ -11,10 +11,9 @@ const Avatar = ({onClick}) => (
       borderRadius: '27%',
       overflow: 'hidden',
       padding: '3px',
-      border: 'solid 2px white',
-      borderColor: 'rgba(255, 255, 255, 0)',
+      border: 'solid 2px rgba(255, 255, 255, 0)',
       ':hover': {
-        borderColor: '#4293EB',
+        border: 'solid 2px #4293EB',
       },
     }}
     tabIndex={0}
