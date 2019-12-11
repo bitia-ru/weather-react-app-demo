@@ -2,6 +2,8 @@ import React from 'react';
 
 const isReactClassComponent = c => typeof c === 'function' && !!c.prototype.isReactComponent;
 
+export const ModalContext = React.createContext(null);
+
 const withModals = BaseComponent => {
   if (!isReactClassComponent(BaseComponent)) {
     throw new Error('modalable should be used with React.Component or PureComponent only.');
@@ -88,7 +90,11 @@ const withModals = BaseComponent => {
           }}
           onClick={() => this.closeModal(name)}
         >
-          {wrappedBody}
+          <ModalContext.Provider value={{
+            onClose: () => { this.closeModal(name); },
+          }}>
+            {wrappedBody}
+          </ModalContext.Provider>
         </div>
       );
     };

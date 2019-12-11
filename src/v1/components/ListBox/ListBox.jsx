@@ -23,6 +23,22 @@ class ListBox extends React.PureComponent {
     event.stopPropagation();
   };
 
+  onButtonInputClick = event => {
+    event.stopPropagation();
+  };
+
+  onButtonInputFocus = () => {
+    this.setState({ expanded: true, });
+
+    this.props.onExpansionChanged && this.props.onExpansionChanged(expanded);
+  };
+
+  onButtonInputBlur = () => {
+    this.setState({ expanded: false, });
+
+    this.props.onExpansionChanged && this.props.onExpansionChanged(expanded);
+  };
+
   render() {
     const { disabled, items } = this.props;
     const {expanded} = this.state;
@@ -41,7 +57,12 @@ class ListBox extends React.PureComponent {
           onClick={this.onButtonClick}
           tabIndex={0}
         >
-          <input style={style.currentItemContainer} />
+          <input
+            style={style.currentItemContainer}
+            onClick={this.onButtonInputClick}
+            onFocus={this.onButtonInputFocus}
+            onBlur={this.onButtonInputBlur}
+          />
           <img
             style={
               composeStyle(style.indicator, {
@@ -77,7 +98,7 @@ const style = {
       lineHeight: '17px',
       color: '#393c51',
       height: '42px',
-      padding: '8px 15px',
+      padding: '8px 40px 8px 15px',
       boxSizing: 'border-box',
       ':hover': {
         border: '2px solid #c9d3d7',
@@ -90,8 +111,12 @@ const style = {
     },
   },
   currentItemContainer: {
-    padding: '3px 0px 2px',
     width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0)',
+    border: 0,
+    outline: 'none',
+    font: '600 16px GilroyRegular',
+    marginTop: '1px',
   },
   indicator: {
     base: {

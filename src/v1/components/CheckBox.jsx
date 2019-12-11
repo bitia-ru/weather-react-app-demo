@@ -42,7 +42,7 @@ class CheckBox extends React.PureComponent {
             disabled,
           })
         }
-        onClick={!disabled && this.onClick}
+        onClick={!disabled ? this.onClick : null}
         tabIndex={0}
       >
         <div

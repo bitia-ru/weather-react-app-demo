@@ -1,0 +1,19 @@
+.form-row {
+  font: 400 12px GilroyRegular;
+  color: #8E989F;
+  padding: 14px 0;
+}
+
+.form-row:first-child {
+  padding-top: 0;
+}
+
+.form-row:last-child {
+  padding-bottom: 0;
+}
+
+.form-row__title {
+  font: 600 14px GilroyRegular;
+  color: #4293EB;
+  padding: 0 0 10px 0;
+}
